@@ -28,4 +28,42 @@ function alert(){
 	}
 }
 
+// Form Generator
+function form_text($name,$value = false){
+	$value = ($value)? $value : '';
+	echo "<div class='form-group'>";
+	echo "<label for='$name'>".ucfirst($name)."</label>";
+	echo "<input value='' type='text' name='$name' class='form-control'>";
+	echo "</div>";
+}
+
+function form_input($name,$value = false){
+	$value = ($value)? $value : '';
+	echo "<div class='form-group'>";
+	echo "<label for='$name'>".ucfirst($name)."</label>";
+	echo "<input value='' type='password' name='$name' class='form-control'>";
+	echo "</div>";
+}
+
+
+function form_textarea($name,$value = false){
+	$value = ($value)? $value : '';
+	echo "<div class='form-group'>";
+	echo "<label for='$name'>".ucfirst($name)."</label>";
+	echo "<textarea name='$name' rows='10' class='form-control'>$value</textarea>";
+	echo "</div>";
+}
+
+function form_select($name,$options=array(),$current=false){
+	echo "<div class='form-group'>";
+	echo "<label for='$name'>".ucfirst($name)."</label>";
+	echo "<select name='' class='form-control'>";
+	foreach ($options as $key => $value) {
+		$selected = ($current==$key)? "selected" : "";
+		echo "<option value='$key' $selected >$value</option>";
+	}
+	echo "</select>";
+	echo "</div>";
+}
+
 ?>
