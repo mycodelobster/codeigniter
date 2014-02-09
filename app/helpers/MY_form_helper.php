@@ -17,18 +17,24 @@ function alert(){
 		echo "<a class='close' data-dismiss='alert' href='#'>&times;</a></div>";
 	}
 	if($CI->session->flashdata('alert_error')){
-		echo "<div class='alert alert-error'>";
+		echo "<div class='alert alert-danger'>";
 		echo $CI->session->flashdata('alert_error');
 		echo "<a class='close' data-dismiss='alert' href='#'>&times;</a></div>";
 	}
 	if($CI->form_validation->error_array()){
-		echo "<div class='alert alert-error'>";
+		echo "<div class='alert alert-danger'>";
 		echo strtoupper($CI->form_validation->error_array());
 		echo "<a class='close' data-dismiss='alert' href='#'>&times;</a></div>";
 	}
 }
 
 // Form Generator
+function generate_validation($array){
+	$CI =& get_instance();
+	foreach ($array as  $name) {
+		$CI->form_validation->set_rules($name,ucfirst($name),'trim|required|xss_clean');
+	}
+}
 function form_text($name,$value = false){
 	$value = ($value)? $value : '';
 	echo "<div class='form-group'>";
