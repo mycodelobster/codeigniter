@@ -33,15 +33,15 @@ function form_text($name,$value = false){
 	$value = ($value)? $value : '';
 	echo "<div class='form-group'>";
 	echo "<label for='$name'>".ucfirst($name)."</label>";
-	echo "<input value='' type='text' name='$name' class='form-control'>";
+	echo "<input value='$value' type='text' name='$name' class='form-control'>";
 	echo "</div>";
 }
 
-function form_input($name,$value = false){
+function form_password($name,$value = false){
 	$value = ($value)? $value : '';
 	echo "<div class='form-group'>";
 	echo "<label for='$name'>".ucfirst($name)."</label>";
-	echo "<input value='' type='password' name='$name' class='form-control'>";
+	echo "<input value='$value' type='password' name='$name' class='form-control'>";
 	echo "</div>";
 }
 
