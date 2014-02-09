@@ -17,12 +17,12 @@ function alert(){
 		echo "<a class='close' data-dismiss='alert' href='#'>&times;</a></div>";
 	}
 	if($CI->session->flashdata('alert_error')){
-		echo "<div class='alert alert-danger'>";
+		echo "<div class='alert alert-error'>";
 		echo $CI->session->flashdata('alert_error');
 		echo "<a class='close' data-dismiss='alert' href='#'>&times;</a></div>";
 	}
 	if($CI->form_validation->error_array()){
-		echo "<div class='alert alert-danger'>";
+		echo "<div class='alert alert-error'>";
 		echo strtoupper($CI->form_validation->error_array());
 		echo "<a class='close' data-dismiss='alert' href='#'>&times;</a></div>";
 	}
