@@ -16,7 +16,7 @@ $lang['numeric']			= "%s must contain only numbers.";
 $lang['is_numeric']			= "%s must contain only numeric characters.";
 $lang['integer']			= "%s must contain an integer.";
 $lang['regex_match']		= "%s is not in correct format.";
-$lang['matches']			= "%s does not match %s field.";
+$lang['matches']			= "%s does not match %s.";
 $lang['is_unique'] 			= "%s must contain a unique value.";
 $lang['is_natural']			= "%s must contain only positive numbers.";
 $lang['is_natural_no_zero']	= "%s must contain a number greater than zero.";
@@ -26,4 +26,4 @@ $lang['greater_than']		= "%s must contain a number greater than %s.";
 
 
 /* End of file form_validation_lang.php */
-/* Location: ./system/language/english/form_validation_lang.php */
+/* Location: ./core/language/english/form_validation_lang.php */
