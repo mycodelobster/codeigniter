@@ -72,11 +72,10 @@ function form_select($name,$options=array(),$current=false){
 	echo "</div>";
 }
 
-
 // DEBUG FUNCTION
-public function debug($str){
+function debug($str){
 	echo "<pre>";
-	echo var_dump($str)
+	echo var_dump($str);
 	echo "</pre>";
 	exit();
 }
