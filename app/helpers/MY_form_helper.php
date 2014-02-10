@@ -29,12 +29,6 @@ function alert(){
 }
 
 // Form Generator
-function generate_validation($array){
-	$CI =& get_instance();
-	foreach ($array as  $name) {
-		$CI->form_validation->set_rules($name,ucfirst($name),'trim|required|xss_clean');
-	}
-}
 function form_text($name,$value = false){
 	$value = ($value)? $value : '';
 	echo "<div class='form-group'>";
