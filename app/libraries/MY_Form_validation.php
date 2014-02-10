@@ -12,6 +12,13 @@ class MY_Form_validation extends CI_Form_validation{
 		$this->_error_suffix = '<button type="button" class="close" data-dismiss="alert">&times;</button></div>';
 	}
 
+	function generate($array){
+		$CI =& get_instance();
+		foreach ($array as  $name) {
+			$CI->form_validation->set_rules($name,ucfirst($name),'trim|required|xss_clean');
+		}
+	}
+
 	function edit_unique($value, $params){
 		$CI =& get_instance();
 		$CI->load->database();
