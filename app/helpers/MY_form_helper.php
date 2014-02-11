@@ -60,7 +60,7 @@ function form_select($name,$options=array(),$current=false){
 	echo "<select name='$name' class='form-control'>";
 	foreach ($options as $item) {
 		$selected = ($current==$item['value'])? "selected" : "";
-		echo "<option value='$key' $selected >".$item['text']."</option>";
+		echo "<option value='".$item['value']."' $selected >".$item['text']."</option>";
 	}
 	echo "</select>";
 	echo "</div>";
