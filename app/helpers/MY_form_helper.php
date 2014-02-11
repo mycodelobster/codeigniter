@@ -57,7 +57,7 @@ function form_textarea($name,$value = false){
 function form_select($name,$options=array(),$current=false){
 	echo "<div class='form-group'>";
 	echo "<label for='$name'>".ucfirst($name)."</label>";
-	echo "<select name='' class='form-control'>";
+	echo "<select name='$name' class='form-control'>";
 	foreach ($options as $item) {
 		$selected = ($current==$item['value'])? "selected" : "";
 		echo "<option value='$key' $selected >".$item['text']."</option>";
