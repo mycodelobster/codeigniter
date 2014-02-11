@@ -12,9 +12,11 @@ class MY_Form_validation extends CI_Form_validation{
 		$this->_error_suffix = '<button type="button" class="close" data-dismiss="alert">&times;</button></div>';
 	}
 
-	function generate($array){
+	function generate($input){
 		$CI =& get_instance();
-		foreach ($array as  $name) {
+		$input = str_replace("'", "", $input);
+		$input = explode(",", $input);
+		foreach ($input as  $name) {
 			$CI->form_validation->set_rules($name,ucfirst($name),'trim|required|xss_clean');
 		}
 	}
