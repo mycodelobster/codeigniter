@@ -70,6 +70,11 @@ function form_button($name='Submit',$class='btn-primary'){
 	echo "<button type='submit' class='btn $class'>$name</button>";
 }
 
+function button_action($url=null,$text=null,$style="btn-primary")
+{
+	echo "<a href='".base_url($url)."' class='btn $style'>$text</a>"; 
+}
+
 // DEBUG FUNCTION
 function debug($str){
 	echo "<pre>";
