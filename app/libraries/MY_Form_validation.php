@@ -14,11 +14,10 @@ class MY_Form_validation extends CI_Form_validation{
 
 	function generate($input){
 		$CI =& get_instance();
-		$input = str_replace("'", "", $input);
-		$input = explode(",", $input);
 		foreach ($input as  $name) {
 			$CI->form_validation->set_rules($name,ucfirst($name),'trim|required|xss_clean');
 		}
+		return $CI;
 	}
 
 	function edit_unique($value, $params){

@@ -11,12 +11,13 @@ class Auth extends CI_Controller
 	
 	public function index()
 	{
-		
+		$this->login();
 	}
 
 	public function login()
 	{
-		$this->form_validation->generate('username','password');
+
+		$this->form_validation->generate(array('username','password'));
 		if($this->form_validation->run()==TRUE)	
 		{
 			$username = $this->input->post('username',TRUE);
@@ -28,15 +29,16 @@ class Auth extends CI_Controller
 			else
 			{
 				set_error('Login Failed');
-				redirect(base_url('url'));
+				redirect(base_url('login'));
 			}
 		}
-		$this->load->view('login');	
+		$this->load->view('login_view');	
 	}
 
 	public function signup()
 	{
-		$this->form_validation->generate('username','password','email');
+
+		$this->form_validation->generate(array('username','password','email'));
 		if($this->form_validation->run()==TRUE)
 		{
 			$username = $this->input->post('username',TRUE);
@@ -45,15 +47,21 @@ class Auth extends CI_Controller
 			if($this->auth->signup($username, $password, $email))
 			{
 				set_success('Success');
+				redirect(base_url('login'));
+			}
+			else
+			{
+				set_error('Signup Failed');
 				redirect(base_url('signup'));
 			}
 		}
-		$this->laod->view('signup');
+		$this->load->view('signup_view');
 	}
 
 	public function logout()
 	{
-		
+		$this->auth->logout();
+		redirect(base_url());
 	}
 
 	public function forgot()

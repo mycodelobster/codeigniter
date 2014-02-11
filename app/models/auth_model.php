@@ -17,6 +17,7 @@ class Auth_model extends CI_Model {
 		if($query->num_rows()==1)
 		{
 			$this->session->set_userdata('user_session',$query->row());
+			
 			return TRUE;
 		}
 		else
@@ -30,7 +31,7 @@ class Auth_model extends CI_Model {
 	{
 		$params = array(
 			'username' => $username,
-			'password' => $password,
+			'password' => md5($password),
 			'email' => $email
 			);
 		$query = $this->db->insert('users',$params);
@@ -47,7 +48,6 @@ class Auth_model extends CI_Model {
 	public function logout()
 	{
 		$this->session->set_userdata('user_sesion',FALSE);
-		redirect(base_url());
 	}
 
 	public function forgot()
