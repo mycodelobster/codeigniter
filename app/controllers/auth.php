@@ -42,7 +42,7 @@ class Auth extends CI_Controller
 		if($this->form_validation->run()==TRUE)
 		{
 			$username = $this->input->post('username',TRUE);
-			$password = md5($this->input->post('password',TRUE));
+			$password = $this->input->post('password',TRUE);
 			$email = $this->input->post('email',TRUE);
 			if($this->auth->signup($username, $password, $email))
 			{
