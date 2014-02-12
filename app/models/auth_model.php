@@ -48,6 +48,7 @@ class Auth_model extends CI_Model {
 	public function logout()
 	{
 		$this->session->set_userdata('user_sesion',FALSE);
+		$this->session->sess_destroy();
 	}
 
 	public function forgot()
