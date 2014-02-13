@@ -1,9 +1,4 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
-class Product extends CI_Controller 
-{
-
-	public function __construct()
+public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('product_model','product');
@@ -69,7 +64,3 @@ class Product extends CI_Controller
 		$this->product->delete($product_id);
 		redirect(base_url("panel/product"));
 	}
-}
-
-/* End of file product.php */
-/* Location: ./app/controllers/product.php} */
