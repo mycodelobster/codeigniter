@@ -32,7 +32,7 @@ function alert(){
 function form_text($name,$value = false){
 	$value = ($value)? $value : '';
 	echo "<div class='form-group'>";
-	echo "<label for='$name'>".ucfirst($name)."</label>";
+	echo "<label for='$name'>".ucfirst(str_replace("_", " ", $name))."</label>";
 	echo "<input value='$value' type='text' name='$name' class='form-control'>";
 	echo "</div>";
 }
@@ -73,6 +73,43 @@ function form_button($name='Submit',$class='btn-primary'){
 function button_action($url=null,$text=null,$style="btn-primary")
 {
 	echo "<a href='".base_url($url)."' class='btn $style'>$text</a>"; 
+}
+
+// TABLE GENERATOR
+function generate_table($data=array(),$primary_key='id'){
+	if($data){
+		$table = "<table class='table table-bordered'>";
+
+	// Table heading
+		$table .= "<thead>";
+		$table .= "<tr>";
+		foreach ($data[0] as $key => $value) {
+			$table .= "<th>".ucwords(str_replace("_", " ", $key))."</th>";
+		}
+		$table .= "<th>Action</th>";
+		$table .= "</tr>";
+		$table .= "</thead>";
+
+	// Table Body
+		$table .= "<tbody>";
+		
+		foreach ($data as $item) {
+			$table .= "<tr>";
+			foreach ($item as $key => $value) {
+				$pm[] = $value;
+				$table .= "<td>$value</td>";
+			}
+			$table .= "<td>";
+			$table .= "<a href='".current_url()."/update/".$item->{$primary_key}."' class='btn btn-primary'>Update</a>";
+			$table .= "<a href='".current_url()."/delete/".$item->{$primary_key}."' class='btn btn-primary' style='margin-left:5px'>Delete</a>";
+			$table .= "</td>";
+			$table .= "</tr>";
+		}
+		$table .= "</tbody>";
+		$table .= "</table>";
+		echo $table;
+	}
+
 }
 
 // DEBUG FUNCTION
